@@ -1,14 +1,4 @@
 <?php
 
-// Mengarahkan Vercel untuk membaca autoload dan app dari folder utama
-require __DIR__ . '/../bootstrap/app.php';
-
-$app = require_once __DIR__ . '/../bootstrap/app.php';
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
-
-$response->send();
-$kernel->terminate($request, $response);
+// Mengarahkan Vercel untuk membaca file index bawaan public Laravel
+require __DIR__ . '/../public/index.php';

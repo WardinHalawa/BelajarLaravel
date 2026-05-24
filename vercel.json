@@ -1,18 +1,10 @@
 {
     "version": 2,
-    "commands": {
-        "build": "composer install --no-dev --optimize-autoloader"
-    },
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "@vercel/php"
-        },
-        {
-            "src": "public/**",
-            "use": "@vercel/static"
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.2"
         }
-    ],
+    },
     "routes": [
         {
             "src": "/(css|js|images|favicon.ico|robots.txt)(.*)",
