@@ -1,16 +1,26 @@
 {
     "version": 2,
-    "framework": null,
+    "commands": {
+        "build": "composer install --no-dev --optimize-autoloader"
+    },
     "builds": [
         {
-            "src": "public/index.php",
+            "src": "api/index.php",
             "use": "@vercel/php"
+        },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
         }
     ],
     "routes": [
         {
+            "src": "/(css|js|images|favicon.ico|robots.txt)(.*)",
+            "dest": "public/$1$2"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/public/index.php"
+            "dest": "api/index.php"
         }
     ]
 }
